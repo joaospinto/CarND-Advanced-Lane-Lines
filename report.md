@@ -46,14 +46,8 @@ Here is what this looks like before applying the inverse perspective transform:
 After applying the inverse perspective transform, we get:
 ![reversed_ransac_color](report_imgs/reversed_ransac_color.jpg)
 Note that the inverse perspective transform is computed with `np.linalg.inv`.
+Finally, we overlay this on top of the initial undistorted image:
+![merged](report_imgs/merged.jpg)
 
-
-
-
-## Conclusion
-
-
-
-examples
-
-[here](https://youtu.be/pi8hGzjxwAE)
+# Video processing
+Similarly to what had been done in the first project, we used `moviepy.editor.VideoFileClip` to open the source video, and the `fl_image` to process each frame; `write_videofile` was used to write the resulting video.

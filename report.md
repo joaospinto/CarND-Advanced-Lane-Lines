@@ -36,9 +36,7 @@ Here is an example of the RANSAC results:
 
 ## Inverse transform and overlay
 After applying RANSAC, we color the region between the extrapolated lanes, apply the inverse perspective transform.
-Here is what this looks like before applying the inverse perspective transform:
-![ransac_color](report_imgs/ransac_color.jpg)
-After applying the inverse perspective transform, we get:
+After applying the inverse perspective transform, this is what we obtain:
 ![reversed_ransac_color](report_imgs/reversed_ransac_color.jpg)
 Note that the inverse perspective transform is computed with `np.linalg.inv`.
 Finally, we overlay this on top of the initial undistorted image:

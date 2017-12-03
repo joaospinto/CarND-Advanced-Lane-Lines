@@ -49,5 +49,13 @@ Note that the inverse perspective transform is computed with `np.linalg.inv`.
 Finally, we overlay this on top of the initial undistorted image:
 ![merged](report_imgs/merged.jpg)
 
-# Video processing
-Similarly to what had been done in the first project, we used `moviepy.editor.VideoFileClip` to open the source video, and the `fl_image` to process each frame; `write_videofile` was used to write the resulting video.
+## Radius of curvature and distance from the center
+The radius of curvature was computed using the formula provided, by making use of the quadratic polynomials determined by RANSAC.
+To compute the distance from the center, we evaluated the polynomials interpolating the lane lines at the maximum value of `y`, and see how their average differs from half of the image width.
+This value was then divided by the image width and multiplied by the average lane width in US highlanes (3.7 meters), multiplied by the ratio between the image width and the distance between the interpolated polynomials at the maximum value of `y`. The images above already include the values of radius of curvature and distance from the lane center.
+
+## Video processing
+Similarly to what had been done in the first project, we used `moviepy.editor.VideoFileClip` to open the source video, and the `fl_image` to process each frame; `write_videofile` was used to write the resulting video. The produced video can be found in `project_mp4_out.mp4`.
+
+## Critique
+Many of the techniques in use here are not particularly robust. It's quite hard to pick the relevant thresholds in a way that results in a good performance across the entire video. The RANSAC algorithm, although a good way of dealing with the noisy points that do not belong to the right lane lines, at times fails to provide satisfactory results. This typically happens when few lane markings are detected, and lots of false positives show up in the thresholded binary image.

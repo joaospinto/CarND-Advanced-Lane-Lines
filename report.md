@@ -18,7 +18,7 @@ Here is an example of an undistorted image taken on the road:
 ![undistorted_road](report_imgs/undistorted_road.jpg)
 
 ## Lane point detection
-Lane point detection was done by essentially extracting the LAB and LUV decompositions of the undistorted image, and applying thresholding to each of these individually. The thresholded images were then combined.
+Lane point detection was done by essentially extracting the LAB and LUV decompositions of the undistorted image, and applying thresholding to each of these individually. The thresholded images were then combined. As mentioned above, the B-channel from LAB and the L- and V-channels from LUV were used.
 A region of interest was applied, consisting of a the difference between two trapezoids (the content of the inner trapezoid was discarded).
 Here is what the output looks like:
 ![sobel_and_S](report_imgs/extracted_markings.jpg)
